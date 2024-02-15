@@ -4,22 +4,65 @@ sidebar_position: 1
 
 # Token
 
-## Endpoint `POST /api/v1/token`
+## Client Credentials Flow
 
-### Request Data
+### Endpoint `POST /api/v1/token`
 
-|   Parameter   |  Type  | Required |                       Description                       |
-| :-----------: | :----: | :------: | :-----------------------------------------------------: |
-|   tenant_id   | string |   true   |     the tenant the operation should be performed on     |
-|  grant_type   | string |   true   | client_credentials, authorization_code or refresh_token |
-|     code      | string | possibly |      required if grant_type is client_credentials       |
-| refresh_token | string | possibly |         required if grant_type is refresh_token         |
-| redirect_uri  | string |   true   |  the url to wich the service redirects after auth flow  |
-|   client_id   | string |   true   |  client id of the oauth client performing the request   |
-| client_secret | string | possibly |   required if client_credentials is set in grant_type   |
-| code_verifier | string | possibly |                 required for PKCE flows                 |
-|     state     | string |  false   |         can add additional security to the flow         |
-|     scope     | string | possibly |   required if grant_type is set to client_credentials   |
+### Request Body
+
+> Request Body is expected to be send as JSON-Body
+
+|   Parameter   |  Type  | Required |                      Description                      |
+| :-----------: | :----: | :------: | :---------------------------------------------------: |
+|   tenant_id   | string |   true   |    the tenant the operation should be performed on    |
+|  grant_type   | string |   true   |                  client_credentials                   |
+| redirect_uri  | string |   true   | the url to wich the service redirects after auth flow |
+|   client_id   | string |   true   | client id of the oauth client performing the request  |
+| client_secret | string |   true   |          required in client_credentials flow          |
+|     scope     | string |   true   |        scopes which the token needs to access         |
+|     state     | string |  false   |        can add additional security to the flow        |
+
+## Authorization Code Flow
+
+### Endpoint `POST /api/v1/token`
+
+### Request Body
+
+> Request Body is expected to be send as JSON-Body
+
+|   Parameter   |  Type  | Required |                      Description                      |
+| :-----------: | :----: | :------: | :---------------------------------------------------: |
+|   tenant_id   | string |   true   |    the tenant the operation should be performed on    |
+|  grant_type   | string |   true   |                  authorization_code                   |
+|     code      | string |   true   |                 required in code flow                 |
+| redirect_uri  | string |   true   | the url to wich the service redirects after auth flow |
+|   client_id   | string |   true   | client id of the oauth client performing the request  |
+| client_secret | string | possibly |             required if PKCE is not used              |
+| code_verifier | string | possibly |         required if client_secret is not used         |
+|     scope     | string |   true   |        scopes which the token needs to access         |
+|     state     | string |  false   |        can add additional security to the flow        |
+
+## Refresh-Token Flow
+
+### Endpoint `POST /api/v1/token`
+
+### Request Body
+
+> Request Body is expected to be send as JSON-Body
+
+|   Parameter   |  Type  | Required |                      Description                      |
+| :-----------: | :----: | :------: | :---------------------------------------------------: |
+|   tenant_id   | string |   true   |    the tenant the operation should be performed on    |
+|  grant_type   | string |   true   |                  authorization_code                   |
+|     code      | string |   true   |                 required in code flow                 |
+| redirect_uri  | string |   true   | the url to wich the service redirects after auth flow |
+|   client_id   | string |   true   | client id of the oauth client performing the request  |
+| client_secret | string | possibly |             required if PKCE is not used              |
+| code_verifier | string | possibly |         required if client_secret is not used         |
+|     scope     | string |   true   |        scopes which the token needs to access         |
+|     state     | string |  false   |        can add additional security to the flow        |
+
+## Responses
 
 ### Success Response 200
 
@@ -44,7 +87,7 @@ sidebar_position: 1
 {
   "success": false,
   "error_code": 400,
-  "error_msg": "Bad Request"
+  "error_msg": "Bad Request" // Detailed Error Message
 }
 ```
 
@@ -54,7 +97,7 @@ sidebar_position: 1
 {
   "success": false,
   "error_code": 401,
-  "error_msg": "Unauthorized"
+  "error_msg": "Unauthorized" // Detailed Error Message
 }
 ```
 
@@ -64,6 +107,6 @@ sidebar_position: 1
 {
   "success": false,
   "error_code": 500,
-  "error_msg": "Internal Server Error"
+  "error_msg": "Internal Server Error" // Detailed Error Message
 }
 ```
