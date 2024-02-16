@@ -12,11 +12,11 @@ sidebar_position: 3
 
 > Request Body is expected to be send as JSON-Body
 
-| Parameter |  Type  | Required |                           Description                           |
-| :-------: | :----: | :------: | :-------------------------------------------------------------: |
-| tenant_id | string |   true   |         the tenant the operation should be performed on         |
-|   token   | string |   true   |                  the token to be introspected                   |
-|   scope   | string |  flase   | scopes that should be granted to the token to access a resource |
+|    Parameter    |  Type  | Required |                           Description                           |
+| :-------------: | :----: | :------: | :-------------------------------------------------------------: |
+| organization_id | string |   true   |      the organization the operation should be performed on      |
+|      token      | string |   true   |                  the token to be introspected                   |
+|      scope      | string |  flase   | scopes that should be granted to the token to access a resource |
 
 ## Responses
 
@@ -30,7 +30,7 @@ sidebar_position: 3
     "scope": "all scopes granted to the token",
     "client_id": "granted for this client",
     "account_id": "granted for this account",
-    "tenant_id": "granted for this tenant"
+    "organization_id": "granted for this organization"
   }
 }
 ```

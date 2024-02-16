@@ -12,15 +12,15 @@ sidebar_position: 1
 
 > Request Body is expected to be send as JSON-Body
 
-|   Parameter   |  Type  | Required |                      Description                      |
-| :-----------: | :----: | :------: | :---------------------------------------------------: |
-|   tenant_id   | string |   true   |    the tenant the operation should be performed on    |
-|  grant_type   | string |   true   |                  client_credentials                   |
-| redirect_uri  | string |   true   | the url to wich the service redirects after auth flow |
-|   client_id   | string |   true   | client id of the oauth client performing the request  |
-| client_secret | string |   true   |          required in client_credentials flow          |
-|     scope     | string |   true   |        scopes which the token needs to access         |
-|     state     | string |  false   |        can add additional security to the flow        |
+|    Parameter    |  Type  | Required |                      Description                      |
+| :-------------: | :----: | :------: | :---------------------------------------------------: |
+| organization_id | string |   true   | the organization the operation should be performed on |
+|   grant_type    | string |   true   |                  client_credentials                   |
+|  redirect_uri   | string |   true   | the url to wich the service redirects after auth flow |
+|    client_id    | string |   true   | client id of the oauth client performing the request  |
+|  client_secret  | string |   true   |          required in client_credentials flow          |
+|      scope      | string |   true   |        scopes which the token needs to access         |
+|      state      | string |  false   |        can add additional security to the flow        |
 
 ## Authorization Code Flow
 
@@ -30,17 +30,17 @@ sidebar_position: 1
 
 > Request Body is expected to be send as JSON-Body
 
-|   Parameter   |  Type  | Required |                      Description                      |
-| :-----------: | :----: | :------: | :---------------------------------------------------: |
-|   tenant_id   | string |   true   |    the tenant the operation should be performed on    |
-|  grant_type   | string |   true   |                  authorization_code                   |
-|     code      | string |   true   |                 required in code flow                 |
-| redirect_uri  | string |   true   | the url to wich the service redirects after auth flow |
-|   client_id   | string |   true   | client id of the oauth client performing the request  |
-| client_secret | string | possibly |             required if PKCE is not used              |
-| code_verifier | string | possibly |         required if client_secret is not used         |
-|     scope     | string |   true   |        scopes which the token needs to access         |
-|     state     | string |  false   |        can add additional security to the flow        |
+|    Parameter    |  Type  | Required |                      Description                      |
+| :-------------: | :----: | :------: | :---------------------------------------------------: |
+| organization_id | string |   true   | the organization the operation should be performed on |
+|   grant_type    | string |   true   |                  authorization_code                   |
+|      code       | string |   true   |                 required in code flow                 |
+|  redirect_uri   | string |   true   | the url to wich the service redirects after auth flow |
+|    client_id    | string |   true   | client id of the oauth client performing the request  |
+|  client_secret  | string | possibly |             required if PKCE is not used              |
+|  code_verifier  | string | possibly |         required if client_secret is not used         |
+|      scope      | string |   true   |        scopes which the token needs to access         |
+|      state      | string |  false   |        can add additional security to the flow        |
 
 ## Refresh-Token Flow
 
@@ -50,17 +50,17 @@ sidebar_position: 1
 
 > Request Body is expected to be send as JSON-Body
 
-|   Parameter   |  Type  | Required |                      Description                      |
-| :-----------: | :----: | :------: | :---------------------------------------------------: |
-|   tenant_id   | string |   true   |    the tenant the operation should be performed on    |
-|  grant_type   | string |   true   |                  authorization_code                   |
-|     code      | string |   true   |                 required in code flow                 |
-| redirect_uri  | string |   true   | the url to wich the service redirects after auth flow |
-|   client_id   | string |   true   | client id of the oauth client performing the request  |
-| client_secret | string | possibly |             required if PKCE is not used              |
-| code_verifier | string | possibly |         required if client_secret is not used         |
-|     scope     | string |   true   |        scopes which the token needs to access         |
-|     state     | string |  false   |        can add additional security to the flow        |
+|    Parameter    |  Type  | Required |                      Description                      |
+| :-------------: | :----: | :------: | :---------------------------------------------------: |
+| organization_id | string |   true   | the organization the operation should be performed on |
+|   grant_type    | string |   true   |                  authorization_code                   |
+|      code       | string |   true   |                 required in code flow                 |
+|  redirect_uri   | string |   true   | the url to wich the service redirects after auth flow |
+|    client_id    | string |   true   | client id of the oauth client performing the request  |
+|  client_secret  | string | possibly |             required if PKCE is not used              |
+|  code_verifier  | string | possibly |         required if client_secret is not used         |
+|      scope      | string |   true   |        scopes which the token needs to access         |
+|      state      | string |  false   |        can add additional security to the flow        |
 
 ## Responses
 

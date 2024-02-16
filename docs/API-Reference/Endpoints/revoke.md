@@ -12,11 +12,11 @@ sidebar_position: 2
 
 > Request Body is expected to be send as JSON-Body
 
-| Parameter  |  Type  | Required |                   Description                   |
-| :--------: | :----: | :------: | :---------------------------------------------: |
-| tenant_id  | string |   true   | the tenant the operation should be performed on |
-| token_type | string |   true   |          refresh_token or access_token          |
-|   token    | string |   true   |             the token to be revoked             |
+|    Parameter    |  Type  | Required |                      Description                      |
+| :-------------: | :----: | :------: | :---------------------------------------------------: |
+| organization_id | string |   true   | the organization the operation should be performed on |
+|   token_type    | string |   true   |             refresh_token or access_token             |
+|      token      | string |   true   |                the token to be revoked                |
 
 ## Responses
 
